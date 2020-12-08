@@ -142,6 +142,7 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
+// Function Declaration:
 // let bobsTotal = purchases.reduce(function(acc, curr){
 //   if (curr.owner === 'Bob'){
 //     return acc + curr.price;
@@ -149,9 +150,29 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 //   return acc;
 // }, 0);
 
+// Arrow Method
 let bobsTotal = purchases.reduce((acc, curr) => {
   if (curr.owner === 'Bob'){
     return acc + curr.price;
   }
   return acc;
-}, 0)
+}, 0);
+
+// Ternary:
+// const bobsTotal = purchases.reduce((acc, curr) => curr.owner !== 'Bob' ? acc : acc + curr.price, 0);
+
+// Filter Ternary then use line 176:
+// let filtered = purchases.filter(element => element.owner === 'Bob');
+
+// Filter THEN Reduce:
+// let filtered = purchases.filter(element =>{
+//   if (element.owner === 'Bob'){
+//     return true;
+//   } else {
+//     return false;
+//   }
+// });
+
+// let bobsTotal = filtered.reduce((acc, curr) => {
+//   return acc + curr.price;
+// }, 0);
