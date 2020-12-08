@@ -51,7 +51,16 @@ var employees = [
 */
 
 //Code Here
-
+function employeeUpdater(){
+  employees.forEach(function(element, index){
+    if (element.firstName === 'Theo'){
+      employees.splice(index, 1);
+    } else if (element.firstName === 'Lorie'){
+      element.department = 'HR';
+    }
+  })
+  return employees;
+};
 
 
 ////////// PROBLEM 2 //////////
@@ -69,8 +78,28 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
+// function removeDuplicates(){
+//   workplaceAccidents.forEach(function(element, index){
+//     workplaceAccidents.slice(index + 1).forEach(function(element2){
+//       if (element2 === element){
+//         workplaceAccidents.splice(index, 1);
+//       }
+//     })
+//   })
+//   return workplaceAccidents;
+// }
 
 
+function removeDuplicates(){
+  for (let i = 0; i < workplaceAccidents.length; i++){
+    for (let j = i + 1; j < workplaceAccidents.length; j++){
+      if (workplaceAccidents[i] === workplaceAccidents[j]){
+        workplaceAccidents.splice(j, 1);
+      }
+    }
+  }
+  return workplaceAccidents;
+};
 
 ////////// PROBLEM 3 //////////
 
@@ -97,8 +126,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -139,8 +168,19 @@ var myCar = {
 */
 
 //Code Here
+function recordCleaner(){
+  for (let i = 0; i < myCar.accidents.length; i++){
+    if (myCar.accidents[i].atFaultForAccident){
+      myCar.accidents[i].atFaultForAccident = false;
+    }
+  }
+};
 
-
+// function recordCleaner(){
+//   myCar.accidents.forEach(function(element){
+//     element.atFaultForAccident = false;
+//   })
+// };
 
 ////////// PROBLEM 5 //////////
 
@@ -158,5 +198,17 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-
+function looper(){
+  for (let i = 0; i < numsArr.length; i++){
+    for (let j = 0; j < numsArr[i].length; j++){
+      numsArr[i][j] = numsArr[i][j] % 2 === 0 ? 'even' : 'odd';
+      // if (numsArr[i][j] % 2 === 0){
+      //   numsArr[i][j] = 'even';
+      // } else {
+      //   numsArr[i][j] = 'odd';
+      // }
+    }
+  }
+  return numsArr;
+};
 
