@@ -95,6 +95,7 @@ function removeDuplicates(){
     for (let j = i + 1; j < workplaceAccidents.length; j++){
       if (workplaceAccidents[i] === workplaceAccidents[j]){
         workplaceAccidents.splice(j, 1);
+        j--;
       }
     }
   }
